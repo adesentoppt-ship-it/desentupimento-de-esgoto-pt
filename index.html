@@ -266,9 +266,37 @@
     font-size:.85rem; color:var(--ink-soft);
   }
   footer .word{ font-size:1rem; }
+
+  /* ---------- floating call button ---------- */
+  .fab-call{
+    position:fixed;
+    right:18px;
+    bottom:calc(18px + env(safe-area-inset-bottom,0px));
+    z-index:50;
+    background:var(--red);
+    color:var(--red-ink);
+    width:58px; height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(0,0,0,.32);
+    animation:fab-pulse 2.4s ease-in-out infinite;
+  }
+  .fab-call svg{ width:25px; height:25px; }
+  @keyframes fab-pulse{
+    0%, 100%{ box-shadow:0 8px 20px rgba(0,0,0,.32), 0 0 0 0 color-mix(in srgb, var(--red) 45%, transparent); }
+    50%{ box-shadow:0 8px 20px rgba(0,0,0,.32), 0 0 0 10px color-mix(in srgb, var(--red) 0%, transparent); }
+  }
+  @media (prefers-reduced-motion: reduce){ .fab-call{ animation:none; } }
 </style>
 
 <div class="ticker">URGÊNCIAS <span>24H</span> · PORTO E ERMESINDE · EXCETO SÁBADO 6H–21H</div>
+
+<a class="fab-call" href="tel:+351925375475" aria-label="Ligar para Desentupimento de Esgoto PT">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
 
 <header class="masthead wrap">
   <div class="word">Esgoto<em>PT</em></div>
